@@ -1,2 +1,22 @@
-# Google App Engine generated folder
-appengine-generated/
+# .gitignore
+
+# Ambiente Virtual
+venv/
+app/.env
+
+# Arquivos Python Compilados
+__pycache__/
+*.pyc
+
+# Docker
+*.log
+docker-compose.override.yml
+
+# IDEs e Editores
+.vscode/
+.idea/
+*.swp
+
+# Outros
+*.sqlite3
+.cache/
