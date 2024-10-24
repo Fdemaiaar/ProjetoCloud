@@ -2,8 +2,8 @@
 
 # Ambiente Virtual
 venv/
-app/.env
-
+.env
+.flaskenv
 # Arquivos Python Compilados
 __pycache__/
 *.pyc

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Aplicação Cloud</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Aplicação Cloud</h1>
+
+    <div id="registro">
+        <h2>Registrar</h2>
+        <form id="form-registro">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br>
+
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required><br>
+
+            <button type="submit">Registrar</button>
+        </form>
+        <div id="mensagem-registro"></div>
+    </div>
+
+    <div id="login">
+        <h2>Login</h2>
+        <form id="form-login">
+            <label for="email-login">Email:</label>
+            <input type="email" id="email-login" name="email" required><br>
+
+            <label for="senha-login">Senha:</label>
+            <input type="password" id="senha-login" name="senha" required><br>
+
+            <button type="submit">Login</button>
+        </form>
+        <div id="mensagem-login"></div>
+    </div>
+
+    <div id="consulta" style="display:none;">
+        <h2>Consultar Temperatura</h2>
+    
+        <!-- Adicionando a dica aqui -->
+        <p>Para consultar a temperatura em São Paulo, use:</p>
+        <ul>
+            <li><strong>Latitude:</strong> -23.5489</li>
+            <li><strong>Longitude:</strong> -46.6388</li>
+        </ul>
+    
+        <form id="form-consulta">
+            <label for="latitude">Latitude:</label>
+            <input type="number" step="any" id="latitude" name="latitude" required><br>
+    
+            <label for="longitude">Longitude:</label>
+            <input type="number" step="any" id="longitude" name="longitude" required><br>
+    
+            <button type="submit">Consultar</button>
+        </form>
+        <div id="resultado-consulta"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

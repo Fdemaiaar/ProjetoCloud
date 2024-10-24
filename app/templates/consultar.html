@@ -1,0 +1,41 @@
+<!-- templates/consultar.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Consultar Temperatura</title>
+</head>
+<body>
+    <h1>Consultar Temperatura</h1>
+    <form id="consultarForm">
+        <input type="text" name="latitude" placeholder="Latitude" required>
+        <input type="text" name="longitude" placeholder="Longitude" required>
+        <button type="submit">Consultar</button>
+    </form>
+    <div id="resultado"></div>
+    <script>
+        document.getElementById('consultarForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const params = new URLSearchParams();
+            formData.forEach((value, key) => params.append(key, value));
+
+            fetch('/consultar?' + params.toString(), {
+                method: 'GET',
+                headers: {
+                    'Authorization': 'Bearer ' + localStorage.getItem('jwt')
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Exibir os dados no elemento 'resultado'
+                document.getElementById('resultado').textContent = JSON.stringify(data, null, 2);
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                document.getElementById('resultado').textContent = 'Erro ao consultar temperatura';
+            });
+        });
+    </script>
+</body>
+</html>
