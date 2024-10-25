@@ -1,8 +1,7 @@
 
 # Projeto Cloud
 
-## Nome do Aluno
-**Felipe Maia**
+## **Felipe Maia**
 
 ## Explicação do Projeto
 Este projeto consiste em uma API desenvolvida com Flask que permite realizar operações de CRUD (Create, Read, Update, Delete) em um banco de dados PostgreSQL. A API inclui funcionalidades de autenticação utilizando JWT (JSON Web Tokens) para garantir a segurança dos endpoints. Além disso, a aplicação está totalmente dockerizada, facilitando sua implantação e gerenciamento em diferentes ambientes.
