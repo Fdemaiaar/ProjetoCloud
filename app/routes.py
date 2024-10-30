@@ -73,29 +73,13 @@ def login():
     logger.info(f"Usuário autenticado: {data['email']}")
     return jsonify({'jwt': access_token}), 200
 
-@main.route('/consultar_temperatura')
-@jwt_required()
-def consultar_temperatura():
-    return render_template('consultar.html')
-
 @main.route('/consultar', methods=['GET'])
 @jwt_required()
 def consultar():
-    latitude = request.args.get('latitude')
-    longitude = request.args.get('longitude')
+    latitude = -23.5505      # Latitude de São Paulo
+    longitude = -46.6333     # Longitude de São Paulo
 
-    logger.info(f"Consulta de temperatura solicitada para latitude: {latitude}, longitude: {longitude}")
-
-    if not latitude or not longitude:
-        logger.warning("Parâmetros latitude e longitude são obrigatórios")
-        return jsonify({'msg': 'Parâmetros latitude e longitude são obrigatórios'}), 400
-
-    try:
-        latitude = float(latitude)
-        longitude = float(longitude)
-    except ValueError:
-        logger.warning("Parâmetros latitude e longitude devem ser números válidos")
-        return jsonify({'msg': 'Parâmetros latitude e longitude devem ser números válidos'}), 400
+    logger.info(f"Consulta de temperatura para latitude: {latitude}, longitude: {longitude}")
 
     url = "https://api.open-meteo.com/v1/forecast"
     params = {
@@ -117,10 +101,11 @@ def consultar():
         resultados = []
         for time, temp in zip(times, temperatures):
             resultados.append({
-                'date': time,  # Já no formato ISO 8601
+                'date': time,  # Formato ISO 8601
                 'temperature_2m': temp
             })
 
+        # Retornar os últimos 10 registros
         resultados = resultados[-10:]
 
         logger.info("Retornando dados de temperatura")
