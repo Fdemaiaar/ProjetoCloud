@@ -77,12 +77,12 @@ FLASK_ENV=development
 
 ### 1. Iniciar os Contêineres com Docker Compose
 ```bash
-docker-compose up -d
+docker compose up --build
 ```
 
 ### 2. Verificar os Contêineres
 ```bash
-docker-compose ps
+docker compose ps
 ```
 
 **Saída Esperada:**
@@ -92,9 +92,9 @@ app            app           Up         0.0.0.0:5000->5000/tcp
 database       db            Up         0.0.0.0:5432->5432/tcp
 ```
 
-### 3. Executar as Migrações do Banco de Dados
+### 3. Executar os comando abaixo para garantir as Migrações do Banco de Dados
 ```bash
-docker-compose exec app flask db upgrade
+docker compose exec app flask db upgrade
 ```
 
 ### 4. Testar os Endpoints da API
