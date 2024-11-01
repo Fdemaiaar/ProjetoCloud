@@ -36,11 +36,14 @@ O **Projeto Cloud** é uma API robusta que oferece funcionalidades de gerenciame
 - **Registro de Usuários**: Permite que novos usuários se registrem fornecendo nome, email e senha.
 - **Login de Usuários**: Autentica usuários registrados e gera tokens JWT para acesso seguro.
 - **Consulta de Temperatura**: Fornece dados de temperatura, integrando-se com uma API externa para obter informações em tempo real.
+- **Atualização e Deleção de Usuários**: Permite que usuários atualizem suas informações ou sejam removidos do sistema.
 
 ## Pré-requisitos
 
 Antes de começar, certifique-se de ter os seguintes itens instalados em seu ambiente:
 
+- **Python 3.7 ou superior**
+- **pip** (gerenciador de pacotes do Python)
 - **Docker**: Para containerização da aplicação.
 - **Docker Compose**: Para orquestrar os contêineres.
 - **Git**: (Opcional, para clonar o repositório).
@@ -53,7 +56,19 @@ git clone https://github.com/seu_usuario/seu_repositorio.git
 cd seu_repositorio
 ```
 
-### 2. Configurar as Variáveis de Ambiente
+### 2. Crie e Ative o Ambiente Virtual
+```bash
+python -m venv venv
+source venv/bin/activate  # Para Linux/Mac
+venv\Scripts\activate  # Para Windows
+```
+
+### 3. Instale as Dependências
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Configurar as Variáveis de Ambiente
 Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis:
 
 ```env
