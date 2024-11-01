@@ -35,7 +35,6 @@ O **Projeto Cloud** é uma API robusta que oferece funcionalidades de gerenciame
 - **Registro de Usuários**: Permite que novos usuários se registrem fornecendo nome, email e senha.
 - **Login de Usuários**: Autentica usuários registrados e gera tokens JWT para acesso seguro.
 - **Consulta de Temperatura**: Fornece dados de temperatura, integrando-se com uma API externa para obter informações em tempo real.
-- **Atualização e Deleção de Usuários**: Permite que usuários atualizem suas informações ou sejam removidos do sistema.
 
 ## Pré-requisitos
 
