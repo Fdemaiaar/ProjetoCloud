@@ -65,7 +65,7 @@ venv\Scripts\activate  # Para Windows
 
 ### 3. Instale as Dependências
 ```bash
-pip install -r requirements.txt
+pip install -r app/requirements.txt
 ```
 
 ### 4. Configurar as Variáveis de Ambiente
