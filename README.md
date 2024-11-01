@@ -26,7 +26,6 @@ Bem-vindo ao **Projeto Cloud**, uma API desenvolvida com o framework Flask em Py
 O **Projeto Cloud** é uma API robusta que oferece funcionalidades de gerenciamento de usuários e consulta de dados de temperatura em tempo real. As principais características incluem:
 
 - **Autenticação de Usuários**: Registro, login e logout com segurança aprimorada utilizando JWT.
-- **Operações CRUD**: Permite criar, ler, atualizar e deletar informações no banco de dados PostgreSQL.
 - **Integração com API Externa**: Consulta de dados de temperatura em tempo real através de uma API externa.
 - **Dockerização Completa**: Facilita a implantação e escalabilidade da aplicação em diferentes ambientes.
 - **Boas Práticas de Segurança**: Uso de variáveis de ambiente para gerenciamento de credenciais e proteção de rotas sensíveis.
