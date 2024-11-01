@@ -2,7 +2,7 @@
 
 **Autor: Felipe Maia**
 
-Bem-vindo ao **Projeto Cloud**, uma API desenvolvida com o framework Flask em Python. Esta aplicação permite que os usuários realizem operações de CRUD (Create, Read, Update, Delete) em um banco de dados PostgreSQL, com autenticação segura utilizando JWT (JSON Web Tokens). A aplicação está totalmente dockerizada, facilitando sua implantação e gerenciamento em diferentes ambientes.
+Bem-vindo ao **Projeto Cloud**, uma API desenvolvida com o framework Flask em Python. Esta aplicação permite que os usuários realizem um registro em um banco de dados PostgreSQL, com autenticação segura utilizando JWT (JSON Web Tokens). A aplicação está totalmente dockerizada, facilitando sua implantação e gerenciamento em diferentes ambientes.
 
 **PARA TESTAR: VÁ DIRETO PARA EXECUTAR NO DOCKER**
 
