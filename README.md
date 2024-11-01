@@ -13,13 +13,8 @@ Bem-vindo ao **Projeto Cloud**, uma API desenvolvida com o framework Flask em Py
 4. [Instalação](#instalação)
 5. [Configuração](#configuração)
 6. [Como Executar a Aplicação](#como-executar-a-aplicação)
-7. [Como Usar a Aplicação](#como-usar-a-aplicação)
-8. [Estrutura do Projeto](#estrutura-do-projeto)
-9. [Tecnologias Utilizadas](#tecnologias-utilizadas)
-10. [Docker](#docker)
-11. [Documentação dos Endpoints da API](#documentação-dos-endpoints-da-api)
-12. [Vídeo Demonstrativo](#vídeo-demonstrativo)
-13. [Considerações Finais](#considerações-finais)
+7. [Link do DockerHub do Projeto](#link-do-dockerhub-do-projeto)
+8. [Link do Video demonstrativo](#link-do-video-demonstrativo)
 
 ## Descrição do Projeto
 
