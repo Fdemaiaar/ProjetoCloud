@@ -50,8 +50,8 @@ Antes de começar, certifique-se de ter os seguintes itens instalados em seu amb
 
 ### 1. Clone o Repositório
 ```bash
-git clone https://github.com/seu_usuario/seu_repositorio.git
-cd seu_repositorio
+git clone [(https://github.com/Fdemaiaar/ProjetoCloud.git)]
+cd ProjetoCloud
 ```
 
 ### 2. Crie e Ative o Ambiente Virtual
@@ -70,12 +70,10 @@ pip install -r app/requirements.txt
 Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis:
 
 ```env
-POSTGRES_DB=superprojeto
-POSTGRES_USER=meuprojeto
-POSTGRES_PASSWORD=S3cr3t
 DATABASE_URL=postgresql://meuprojeto:S3cr3t@db:5432/superprojeto
 JWT_SECRET_KEY=seu_segredo_jwt
-OPENWEATHERMAP_API_KEY=sua_api_key  # Se aplicável
+FLASK_APP = run.py
+FLASK_ENV=development
 ```
 
 **Nota**: Se não criar o arquivo `.env`, os valores padrões definidos no `docker-compose.yaml` serão utilizados.
