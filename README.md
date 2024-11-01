@@ -113,3 +113,11 @@ curl -X POST http://localhost:5000/login -H "Content-Type: application/json" -d 
 ```bash
 curl -X GET http://localhost:5000/consultar_temperatura -H "Authorization: Bearer seu_token_jwt"
 ```
+
+
+## Link do DockerHub do Projeto
+[Clique aqui para acessar](https://hub.docker.com/repository/docker/fdemaiaar/cloud-felipe-maia/general)
+
+
+## Link do Video demonstrativo
+[Clique aqui para acessar](URL)
