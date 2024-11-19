@@ -1,125 +1,182 @@
-# Projeto Cloud
+# **Projeto Cloud**
 
 **Autor: Felipe Maia**
 
-Bem-vindo ao **Projeto Cloud**, uma API desenvolvida com o framework Flask em Python. Esta aplicação permite que os usuários realizem um registro em um banco de dados PostgreSQL, com autenticação segura utilizando JWT (JSON Web Tokens). A aplicação está totalmente dockerizada, facilitando sua implantação e gerenciamento em diferentes ambientes.
+Bem-vindo ao **Projeto Cloud**, uma API desenvolvida com o framework Flask em Python. Esta aplicação permite que os usuários realizem operações de registro e autenticação com JWT, além de consultar dados de temperatura de São Paulo em tempo real. A aplicação está totalmente dockerizada e pronta para ser implantada em Kubernetes.
 
-**PARA TESTAR VÁ DIRETO PARA: Como Executar a Aplicação**
+**Acesse a Aplicação:**  
+[**http://a7756f3f934ce47d9b783c0b601c1774-2104210423.us-east-1.elb.amazonaws.com**](http://a7756f3f934ce47d9b783c0b601c1774-2104210423.us-east-1.elb.amazonaws.com)  
 
-# http://a7756f3f934ce47d9b783c0b601c1774-2104210423.us-east-1.elb.amazonaws.com
+**Vídeo Demonstrativo:**  
+[**https://youtu.be/uopwnFodgPs**](https://youtu.be/uopwnFodgPs)
 
-## Índice
-1. [Descrição do Projeto](#descrição-do-projeto)
-2. [Funcionalidades](#funcionalidades)
-3. [Pré-requisitos](#pré-requisitos)
-4. [Instalação](#instalação)
-5. [Configuração](#configuração)
-6. [Como Executar a Aplicação](#como-executar-a-aplicação)
-7. [Link do DockerHub do Projeto](#link-do-dockerhub-do-projeto)
-8. [Link do Video demonstrativo](#link-do-video-demonstrativo)
+---
 
-## Descrição do Projeto
+## **Índice**
 
-O **Projeto Cloud** é uma API robusta que oferece funcionalidades de gerenciamento de usuários e consulta de dados de temperatura em tempo real. As principais características incluem:
+1. [Descrição do Projeto](#descrição-do-projeto)  
+2. [Funcionalidades](#funcionalidades)  
+3. [Estrutura do Projeto](#estrutura-do-projeto)  
+4. [Pré-requisitos](#pré-requisitos)  
+5. [Instalação e Execução](#instalação-e-execução)  
+6. [Testando a Aplicação](#testando-a-aplicação)  
+7. [Publicação no Docker Hub](#publicação-no-docker-hub)  
+8. [Link do Vídeo Demonstrativo](#link-do-vídeo-demonstrativo)  
 
-- **Autenticação de Usuários**: Registro, login e logout com segurança aprimorada utilizando JWT.
-- **Integração com API Externa**: Consulta de dados de temperatura em tempo real através de uma API externa.
-- **Dockerização Completa**: Facilita a implantação e escalabilidade da aplicação em diferentes ambientes.
-- **Boas Práticas de Segurança**: Uso de variáveis de ambiente para gerenciamento de credenciais e proteção de rotas sensíveis.
+---
 
-## Funcionalidades
+## **Descrição do Projeto**
 
-- **Registro de Usuários**: Permite que novos usuários se registrem fornecendo nome, email e senha.
-- **Login de Usuários**: Autentica usuários registrados e gera tokens JWT para acesso seguro.
-- **Consulta de Temperatura**: Fornece dados de temperatura, integrando-se com uma API externa para obter informações em tempo real.
+O **Projeto Cloud** é uma aplicação desenvolvida para demonstrar funcionalidades básicas de autenticação e consulta de dados externos. Ele combina a simplicidade de Flask com a robustez do PostgreSQL, sendo capaz de:
 
-## Pré-requisitos
+- Gerenciar usuários com segurança.
+- Fornecer informações de temperatura de São Paulo utilizando integração com API externa.
+- Ser implantado em contêineres Docker e gerenciado com Kubernetes.
 
-Antes de começar, certifique-se de ter os seguintes itens instalados em seu ambiente:
+---
 
-- **Python 3.7 ou superior**
-- **pip** (gerenciador de pacotes do Python)
-- **Docker**: Para containerização da aplicação.
-- **Docker Compose**: Para orquestrar os contêineres.
-- **Git**: (Opcional, para clonar o repositório).
+## **Funcionalidades**
 
-## Instalação
+- **Registro de Usuários**: Cadastro seguro de usuários no banco de dados.
+- **Login com JWT**: Geração de tokens para autenticação.
+- **Consulta de Temperatura**: Integração com API para obter temperatura de São Paulo.
+- **Totalmente Dockerizado**: Configuração pronta para execução em contêineres.
 
-### 1. Clone o Repositório
-```bash
-git clone [(https://github.com/Fdemaiaar/ProjetoCloud.git)]
-cd ProjetoCloud
+---
+
+## **Estrutura do Projeto**
+
+```plaintext
+ProjetoCloud/
+├── app/
+│   ├── Dockerfile
+│   ├── __init__.py
+│   ├── models.py
+│   ├── routes.py
+│   ├── requirements.txt
+│   ├── templates/
+│   │   └── index.html
+│   └── static/
+│       ├── style.css
+│       └── script.js
+├── migrations/
+│   ├── ...
+├── compose.yaml
+├── README.md
+└── run.py
 ```
 
-### 2. Crie e Ative o Ambiente Virtual
-```bash
-python -m venv venv
-source venv/bin/activate  # Para Linux/Mac
-venv\Scripts\activate  # Para Windows
-```
+**Diretórios principais:**
 
-### 3. Instale as Dependências
-```bash
-pip install -r app/requirements.txt
-```
+- **app/**: Contém o código da aplicação (Flask).  
+- **migrations/**: Scripts de migração gerados pelo Flask-Migrate.  
+- **compose.yaml**: Arquivo Docker Compose para orquestração local.  
+- **run.py**: Arquivo principal que inicializa a aplicação.  
 
-### 4. Configurar as Variáveis de Ambiente
-Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis:
+---
 
-```env
-DATABASE_URL=postgresql://meuprojeto:S3cr3t@db:5432/superprojeto
-JWT_SECRET_KEY=seu_segredo_jwt
-FLASK_APP = run.py
-FLASK_ENV=development
-```
+## **Pré-requisitos**
 
-**Nota**: Se não criar o arquivo `.env`, os valores padrões definidos no `docker-compose.yaml` serão utilizados.
+Certifique-se de ter as seguintes ferramentas instaladas:
 
-## Como Executar a Aplicação
+- **Docker**  
+- **Docker Compose**  
+- **Python 3.7+**  
 
-### 1. Iniciar os Contêineres com Docker Compose
-```bash
-docker compose up --build
-```
+---
 
-### 2. Verificar os Contêineres
-```bash
-docker compose ps
-```
+## **Instalação e Execução**
 
-**Saída Esperada:**
-```bash
-NAME           SERVICE       STATUS     PORTS
-app            app           Up         0.0.0.0:5000->5000/tcp
-database       db            Up         0.0.0.0:5432->5432/tcp
-```
+### **1. Executar Localmente com Docker Compose**
 
-### 3. Executar os comando abaixo para garantir as Migrações do Banco de Dados
-```bash
-docker compose exec app flask db upgrade
-```
+1. Clone o repositório:
 
-### 4. Testar os Endpoints da API
+   ```bash
+   git clone https://github.com/Fdemaiaar/ProjetoCloud.git
+   cd ProjetoCloud
+   ```
 
-- **Registrar um Novo Usuário:**
-```bash
-curl -X POST http://localhost:5000/registrar -H "Content-Type: application/json" -d '{"nome":"Fulano","email":"fulano@example.com","senha":"senha123"}'
-```
+2. Inicie os contêineres:
 
-- **Fazer Login:**
-```bash
-curl -X POST http://localhost:5000/login -H "Content-Type: application/json" -d '{"email":"fulano@example.com","senha":"senha123"}'
-```
+   ```bash
+   docker compose up --build
+   ```
 
-- **Consultar Temperatura:**
-```bash
-curl -X GET http://localhost:5000/consultar_temperatura -H "Authorization: Bearer seu_token_jwt"
-```
+3. Acesse a aplicação em:  
+   [http://localhost:5000](http://localhost:5000)
 
+4. Execute migrações:
 
-## Link do DockerHub do Projeto
-[Clique aqui para acessar](https://hub.docker.com/repository/docker/fdemaiaar/cloud-felipe-maia/general)
+   ```bash
+   docker compose exec app flask db upgrade
+   ```
 
+---
 
-## Link do Video demonstrativo
-[Clique aqui para acessar](URL)
+## **Testando a Aplicação**
+
+### **Endpoints Disponíveis**
+
+1. **Registro de Usuário**
+   - **Método:** `POST`  
+   - **URL:** `/registrar`  
+   - **Body:**
+     ```json
+     {
+         "nome": "Fulano",
+         "email": "fulano@gmail.com",
+         "senha": "senha"
+     }
+     ```
+
+2. **Login**
+   - **Método:** `POST`  
+   - **URL:** `/login`  
+   - **Body:**
+     ```json
+     {
+         "email": "fulano@gmail.com",
+         "senha": "senha"
+     }
+     ```
+
+3. **Consulta de Temperatura**
+   - **Método:** `GET`  
+   - **URL:** `/consultar`  
+   - **Headers:**  
+     `Authorization: Bearer <seu_token_jwt>`  
+
+---
+
+## **Publicação no Docker Hub**
+
+A imagem da aplicação foi publicada no Docker Hub:  
+[**https://hub.docker.com/repository/docker/fdemaiaar/cloud-felipe-maia**](https://hub.docker.com/repository/docker/fdemaiaar/cloud-felipe-maia)
+
+Para atualizar a imagem no Docker Hub:
+
+1. Gere uma nova imagem:
+   ```bash
+   docker build -t fdemaiaar/cloud-felipe-maia:latest .
+   ```
+
+2. Faça login no Docker Hub:
+   ```bash
+   docker login
+   ```
+
+3. Envie a imagem:
+   ```bash
+   docker push fdemaiaar/cloud-felipe-maia:latest
+   ```
+
+---
+
+## **Link do Vídeo Demonstrativo**
+
+Assista ao vídeo demonstrativo do projeto:  
+[**https://youtu.be/uopwnFodgPs**](https://youtu.be/uopwnFodgPs)
+
+---
+
+Kubernetes: Para este projeto, os arquivos YAML de configuração para o Kubernetes foram criados, permitindo implantação em AWS EKS, mas **não estão incluídos no repositório do GitHub**.
