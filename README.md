@@ -52,6 +52,7 @@ ProjetoCloud/
 │   ├── Dockerfile
 │   ├── __init__.py
 │   ├── models.py
+│   ├── run.py
 │   ├── routes.py
 │   ├── requirements.txt
 │   ├── templates/
@@ -63,7 +64,7 @@ ProjetoCloud/
 │   ├── ...
 ├── compose.yaml
 ├── README.md
-└── run.py
+
 ```
 
 **Diretórios principais:**
