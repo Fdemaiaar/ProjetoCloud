@@ -52,7 +52,6 @@ ProjetoCloud/
 │   ├── Dockerfile
 │   ├── __init__.py
 │   ├── models.py
-│   ├── run.py
 │   ├── routes.py
 │   ├── requirements.txt
 │   ├── templates/
@@ -64,7 +63,7 @@ ProjetoCloud/
 │   ├── ...
 ├── compose.yaml
 ├── README.md
-
+└── run.py
 ```
 
 **Diretórios principais:**
@@ -181,3 +180,4 @@ Assista ao vídeo demonstrativo do projeto:
 ---
 
 Kubernetes: Para este projeto, os arquivos YAML de configuração para o Kubernetes foram criados, permitindo implantação em AWS EKS, mas **não estão incluídos no repositório do GitHub**.
+
